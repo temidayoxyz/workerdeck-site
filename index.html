@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-theme-mode="system">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f7f9" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#07131f" media="(prefers-color-scheme: dark)" />
+    <meta
+      name="description"
+      content="WorkerDeck is the self-hosted application control plane for Cloudflare. Deploy Workers, manage resources, inspect releases, and keep control of your infrastructure."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="WorkerDeck — Your cloud, under control" />
+    <meta
+      property="og:description"
+      content="A self-hosted application control plane for Cloudflare, running in your own account."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%workerdeck-mark.svg" />
+    <script>
+      (() => {
+        const saved = localStorage.getItem('workerdeck-site-theme') || 'system';
+        const resolved =
+          saved === 'system'
+            ? matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light'
+            : saved;
+        document.documentElement.dataset.themeMode = saved;
+        document.documentElement.dataset.theme = resolved;
+      })();
+    </script>
+    <title>WorkerDeck — Your cloud, under control</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
